@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelReview.Web", "TravelR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelReview.Models", "TravelReview.Models\TravelReview.Models.csproj", "{98FBD7C1-7CED-411A-B44B-775FCB44296D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelReview.Repository", "TravelReview.Repository\TravelReview.Repository.csproj", "{7D9497F2-30E9-41B4-9D3F-906337A1A2C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{98FBD7C1-7CED-411A-B44B-775FCB44296D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98FBD7C1-7CED-411A-B44B-775FCB44296D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98FBD7C1-7CED-411A-B44B-775FCB44296D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D9497F2-30E9-41B4-9D3F-906337A1A2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9497F2-30E9-41B4-9D3F-906337A1A2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9497F2-30E9-41B4-9D3F-906337A1A2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9497F2-30E9-41B4-9D3F-906337A1A2C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
