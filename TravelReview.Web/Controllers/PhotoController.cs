@@ -37,7 +37,10 @@ namespace TravelReview.Web.Controllers
 
             var uploadResult = await _photoService.AddPhotoAsync(file);
 
-            if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+            if (uploadResult.Error != null)
+            {
+                return BadRequest(uploadResult.Error.Message);
+            }
 
             var photoCreate = new PhotoCreate
             {
@@ -86,11 +89,17 @@ namespace TravelReview.Web.Controllers
 
                     var usedInReview = reviews.Any(r => r.PhotoId == photoId);
 
-                    if (usedInReview) return BadRequest("Cannot remove photo as it's being used in published review(s).");
+                    if (usedInReview)
+                    {
+                        return BadRequest("Cannot remove photo as it's being used in published review(s).");
+                    }
 
                     var deleteResult = await _photoService.DeletePhotoAsync(foundPhoto.PublicId);
 
-                    if (deleteResult.Error != null) return BadRequest(deleteResult.Error.Message);
+                    if (deleteResult.Error != null)
+                    {
+                        return BadRequest(deleteResult.Error.Message);
+                    }
 
                     var affectRows = await _photoRepository.DeleteAsync(foundPhoto.PhotoId);
 
