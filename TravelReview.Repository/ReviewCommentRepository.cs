@@ -97,7 +97,8 @@ namespace TravelReview.Repository
                         "ReviewComment_Upsert",
                         new
                         {
-                            ReviewComment = dataTable.AsTableValuedParameter("dbo.ReviewCommentType")
+                            ReviewComment = dataTable.AsTableValuedParameter("dbo.ReviewCommentType"),
+                            ApplicationUserId = applicationUserId
                         },
                         commandType: CommandType.StoredProcedure);
                 }

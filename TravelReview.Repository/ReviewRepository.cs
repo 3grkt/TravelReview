@@ -44,7 +44,7 @@ namespace TravelReview.Repository
                 await connection.OpenAsync();
 
                 using (var multi = await connection.QueryMultipleAsync(
-                        "Review_All",
+                        "Review_GetAll",
                         new
                         {
                             Offset = (reviewPaging.Page - 1) * reviewPaging.PageSize,

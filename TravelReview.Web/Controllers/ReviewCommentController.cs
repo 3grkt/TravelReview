@@ -41,7 +41,7 @@ namespace TravelReview.Web.Controllers
         }
 
         [Authorize]
-        [HttpDelete("{reviewId}")]
+        [HttpDelete("{reviewCommentId}")]
         public async Task<ActionResult<int>> Delete(int reviewCommentId)
         {
             int applicationUserId = int.Parse(User.Claims.First(i => i.Type == JwtRegisteredClaimNames.NameId).Value);
