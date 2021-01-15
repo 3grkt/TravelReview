@@ -60,5 +60,6 @@ export class AccountService {
   logout(){
     localStorage.removeItem('travelReview-currentUser');
     this.currentUserSubject$.next(null as any);
+    // this.currentUserSubject$ = new BehaviorSubject<ApplicationUser>(null as any);
   }
 }
