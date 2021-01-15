@@ -26,7 +26,7 @@ export class ReviewService {
   }
 
   get(reviewId: number) : Observable<Review> {
-    return this.http.get<Review>(`${environment.webApi}/Review${reviewId}`);
+    return this.http.get<Review>(`${environment.webApi}/Review/${reviewId}`);
   }
 
   getByApplicationUserId(applicationUserId: number) : Observable<Review[]> {
