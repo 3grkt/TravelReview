@@ -1,1 +1,52 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1 class="display-4 mt-5">Dashboard</h1>
+    </div>
+
+    <ng-template #noreviews>
+        <div class="d-flex justify-content-center">
+            <h3 class="text-dark mt-3">You don't have any reviews yet...</h3>
+        </div>
+        <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createReview()">New Review</button>
+    </ng-template>
+
+    <ng-template [ngIf]="userReviews.length > 0" [ngIfElse]="noreviews">
+        
+        <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createReview()">New Review</button>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Snippet</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let userReview of userReviews">
+                    <td>
+                        {{ userReview.title | summary:30 }}
+                    </td>
+                    <td>
+                        {{ userReview.content | summary:90 }}
+                    </td>
+                    <td>
+                        <button class="btn btn-info d-inline mr-1" (click)="editReview(userReview.reviewId)">
+                            Edit
+                        </button>
+                        <button 
+                            *ngIf="!userReview.deleteConfirm"
+                            class="btn btn-danger d-inline" (click)="confirmDelete(userReview)">
+                            Delete
+                        </button>
+
+                        <div *ngIf="!!userReview.deleteConfirm">
+                            Sure?
+                            <button class="btn btn-link p-1" (click)="deleteConfirmed(userReview, userReviews)">Yes</button>
+                            <button class="btn btn-link p-1" (click)="cancelDeleteConfirm(userReview)">No</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>
