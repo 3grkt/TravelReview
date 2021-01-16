@@ -70,7 +70,8 @@
             Save
         </button>
 
-        <button class="btn btn-danger text-light" *ngIf="!!getPhoto(reviewForm.get('photoId')?.value)">
+        <button class="btn btn-danger text-light" *ngIf="!!getPhoto(reviewForm.get('photoId')?.value)"
+            (click)="detachPhoto()">
             Detach Photo
         </button>
     </form>
