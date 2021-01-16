@@ -1,1 +1,22 @@
-<p>review works!</p>
+<div class="container" *ngIf="!!review">
+    <div class="d-flex justify-content-center">
+        <h1 class="display-4 mt-5 text-center">
+            {{ review.title }}
+        </h1>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <h6>Written by {{review.username}} - {{review.publishDate | date:'medium'}}
+            <span *ngIf="review.publishDate !== review.updateDate"> | Updated on {{review.updateDate | date:'medium'}}</span>
+        </h6>
+    </div>
+
+    <div class="mt-4">
+        <img src="{{reviewPhotoUrl}}" class="review-image img-fluid text-wrapper">
+        <p class="blog-content">
+            {{review.content}}
+        </p>
+    </div>
+
+    <!-- <app-comment-system *ngIf="review" [reviewId]="review.reviewId"></app-comment-system> -->
+</div>
