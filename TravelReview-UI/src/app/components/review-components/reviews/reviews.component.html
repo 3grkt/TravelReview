@@ -1,1 +1,37 @@
-<p>reviews works!</p>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h1 class="display-4 mt-5">Reviews</h1>
+    </div>
+</div>
+
+<ng-template [ngIf]="pagedReviewResult.items.length > 0" [ngIfElse]="noreviews">
+    <div class="container card-columns mt-5 reviews">
+        <app-review-card *ngFor="let review of pagedReviewResult.items" [review]="review">
+
+        </app-review-card>
+    </div>
+</ng-template>
+
+<ng-template #noreviews>
+    <div class="mt-4">
+        <div class="d-flex justify-content-center">
+            <h3 class="text-dark">There are no reviews published yet...</h3>
+        </div>
+    </div>
+</ng-template>
+
+<div class="container mt-5" *ngIf="pagedReviewResult.totalCount > 0">
+    <div class="d-flex justify-content-center">
+        <pagination 
+            [boundaryLinks]="true"
+            [maxSize]="10"
+            [itemsPerPage]="6"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;"
+            firstText="&laquo;"
+            lastText="&raquo;"
+            [totalItems]="pagedReviewResult.totalCount"
+            (pageChanged)="pageChanged($event)"
+        ></pagination>
+    </div>
+</div>

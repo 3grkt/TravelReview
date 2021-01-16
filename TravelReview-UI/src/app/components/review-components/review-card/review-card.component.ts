@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Review } from 'src/app/models/review/review.model';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-review-card',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() review: Review = new Review(-1, "", "", -1, "", new Date, new Date);
+  reviewPhotoUrl: string = "";
+
+  constructor(
+    private router: Router,
+    private photoService: PhotoService
+  ) { }
 
   ngOnInit(): void {
+    if (!!this.review.photoId){
+        this.photoService.get(this.review.photoId).subscribe(photo => {
+          if (!!photo) {
+            this.reviewPhotoUrl = photo.imageUrl;
+          }
+        })
+    }
+
   }
 
+  readMore(reviewId: number) {
+    this.router.navigate([`/reviews/${reviewId}`]);
+  }
 }

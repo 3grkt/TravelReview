@@ -1,1 +1,11 @@
-<p>review-card works!</p>
+<div class="card">
+    <img *ngIf="!!reviewPhotoUrl" class="card-img-top img-fluid" src="{{reviewPhotoUrl}}">
+    <div class="card-body">
+        <h4 class="card-title">{{review.title}}</h4>
+
+        <p class="card-text" *ngIf="!!reviewPhotoUrl">{{review.content | summary:100}}</p>
+        <p class="card-text" *ngIf="!reviewPhotoUrl">{{review.content | summary:300}}</p>
+
+        <button class="btn btn-xs bg-primary text-light" (click)="readMore(review.reviewId)">Read More</button>
+    </div>
+</div>

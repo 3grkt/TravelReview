@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PageResult } from '../models/review/paged-result.model';
+import { PagedResult } from '../models/review/paged-result.model';
 import { ReviewCreate } from '../models/review/review-create.model';
 import { ReviewPaging } from '../models/review/review-paging.model';
 import { Review } from '../models/review/review.model';
@@ -20,8 +20,8 @@ export class ReviewService {
     return this.http.post<Review>(`${environment.webApi}/Review`, model);
   }
 
-  getAll(reviewPaging: ReviewPaging) : Observable<PageResult<Review>> {
-    return this.http.get<PageResult<Review>>(
+  getAll(reviewPaging: ReviewPaging) : Observable<PagedResult<Review>> {
+    return this.http.get<PagedResult<Review>>(
       `${environment.webApi}/Review?Page=${reviewPaging.page}&PageSize=${reviewPaging.pageSize}`);
   }
 
