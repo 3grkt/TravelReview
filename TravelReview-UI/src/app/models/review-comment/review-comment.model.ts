@@ -1,6 +1,6 @@
 export class ReviewComment {
     constructor(
-        public reviewCommentId: number,
+        public reviewCommentId: number | null,
         public reviewId: number,
         public content: string,
         public username: string,

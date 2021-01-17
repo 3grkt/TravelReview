@@ -1,13 +1,12 @@
 export class ReviewCommentViewModel {
     constructor(
-        public parentReviewCommentId: number,
-        public reviewCommentId: number,
+        public parentReviewCommentId: number | null,
+        public reviewCommentId: number | null,
         public reviewId: number,
         public content: string,
         public username: string,
-        public applicationUserId: number,
-        public publishDate: Date,
-        public updateDate: Date,
+        public publishDate: Date | null,
+        public updateDate: Date | null,
         public isEditable: boolean = false,
         public deleteConfirm: boolean = false,
         public isReplying: boolean = false,

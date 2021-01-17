@@ -1,9 +1,9 @@
 export class ReviewCommentCreate {
     constructor(
-        public reviewCommentId: number,
-        public reviewId: number,
+        public reviewCommentId: number | null,
+        public reviewId: number | null,
         public content: string,
-        public parentReviewCommentId?: number
+        public parentReviewCommentId?: number | null
         
     ){}
 }
